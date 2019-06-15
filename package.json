@@ -1,17 +1,16 @@
 {
-	"name": "plutus-sls",
+	"name": "plutus",
 	"version": "0.1.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"deploy-saveLatestRates": "gcloud functions deploy saveLatestRates --runtime nodejs10 --trigger-http --env-vars-file .env.yaml --region europe-west2",
-		"deploy-getLatestRates": "gcloud functions deploy getLatestRates --runtime nodejs10 --trigger-http --env-vars-file .env.yaml --region europe-west2"
+		"deploy-getRates": "gcloud functions deploy getRates --runtime nodejs10 --trigger-http --env-vars-file .env.yaml --region europe-west2",
+		"create-db": "gcloud deployment-manager deployments create plutus --template create-db.jinja"
 	},
 	"author": "serverless.com",
 	"license": "MIT",
-	"devDependencies": {
-		"serverless-google-cloudfunctions": "*"
-	},
+	"devDependencies": {},
 	"dependencies": {
 		"axios": "^0.19.0",
 		"pg": "^7.11.0",

@@ -1,0 +1,24 @@
+{% set deployment_name = env['deployment']  %}
+{% set instance_name = deployment_name + '-instance'  %}
+{% set database_name = deployment_name + '-db'  %}
+{% set region = 'europe-west2'  %}
+{% set tier = 'db-f1-micro'  %}
+
+resources:
+- name: {{ instance_name }}
+  type: gcp-types/sqladmin-v1beta4:instances
+  properties:
+    region: {{ region }}
+    backendType: SECOND_GEN
+    databaseVersion: POSTGRES_9_6
+    settings:
+      tier: {{ tier }}
+      backupConfiguration:
+        enabled: true
+
+- name: {{ database_name }}
+  type: gcp-types/sqladmin-v1beta4:databases
+  properties:
+    name: {{ database_name }}
+    instance: $(ref.{{ instance_name }}.name)
+    charset: utf8

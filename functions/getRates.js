@@ -1,10 +1,13 @@
 "use strict"
 const { Rate } = require("../config/db")
 
-exports.getLatestRates = async (req, res) => {
+exports.getRates = async (req, res) => {
 	try {
-		// TODO: Add query params to limit results
-		const rates = await Rate.findAll()
+		const limit = req.query.limit || "100"
+		const rates = await Rate.findAll({
+			limit,
+			attributes: ["btc_usd", "btc_eur", "btc_gbp", "eth_usd", "eth_eur", "eth_gbp", "created_at"]
+		})
 		console.log("Reponse from db: ", rates)
 		return res.status(200).send(rates)
 	} catch (err) {
