@@ -1,3 +1,3 @@
-const { http } = require("./functions/http")
+const { saveLatestRates } = require("./functions/saveLatestRates")
 
-exports.http = http
+module.exports = { saveLatestRates }
