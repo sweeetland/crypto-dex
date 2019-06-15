@@ -20,9 +20,7 @@ This was built with Google Cloud services: Functions, Cloud SQL and Cloud Schedu
 1. `npm run deploy-saveLatestRates && npm run deploy-getRates` to deploy the functions
 1. Create a .env.yml in the root directory for env variables: SQL_USER, SQL_PASSWORD, SQL_DB, INSTANCE_CONNECTION_NAME
 1. You will find this info from GCP console
-1. Create a table in the DB with: 
-
-`CREATE TABLE rates (ID UUID PRIMARY KEY, CREATED_AT TIMESTAMP, BTC_USD FLOAT, BTC_EUR FLOAT,
+1. Create a table in the DB with: `CREATE TABLE rates (ID UUID PRIMARY KEY, CREATED_AT TIMESTAMP, BTC_USD FLOAT, BTC_EUR FLOAT,
  BTC_GBP FLOAT, ETH_USD FLOAT, ETH_EUR FLOAT, ETH_GBP FLOAT);`
 1. Setup cloud scheduler to trigger saveLatestRates via http
 
