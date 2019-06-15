@@ -1,3 +1,4 @@
 const { saveLatestRates } = require("./functions/saveLatestRates")
+const { getLatestRates } = require("./functions/getLatestRates")
 
-module.exports = { saveLatestRates }
+module.exports = { saveLatestRates, getLatestRates }
