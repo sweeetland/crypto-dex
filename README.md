@@ -2,7 +2,7 @@
 
 A small service that is responsible for retrieving current rates by following pairs BTC/EUR, BTC/USD, BTC/GBP, ETH/EUR, ETH/USD, ETH/GBP and saving data to an SQL database every 5 minutes.
 
-API GET - https://europe-west2-plutus-1.cloudfunctions.net/getRates - ? limit = n (to limit results)
+API GET - https://europe-west2-plutus-1.cloudfunctions.net/getRates - ? limit = n (to limit results, default is 100)
 
 This was built with Google Cloud services: Functions, Cloud SQL and Cloud Scheduler. 
 

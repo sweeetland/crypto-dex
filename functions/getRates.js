@@ -6,7 +6,8 @@ exports.getRates = async (req, res) => {
 		const limit = req.query.limit || "100"
 		const rates = await Rate.findAll({
 			limit,
-			attributes: ["btc_usd", "btc_eur", "btc_gbp", "eth_usd", "eth_eur", "eth_gbp", "created_at"]
+			attributes: ["btc_usd", "btc_eur", "btc_gbp", "eth_usd", "eth_eur", "eth_gbp", "created_at"],
+			order: [['created_at', 'DESC']]
 		})
 		console.log("Reponse from db: ", rates)
 		return res.status(200).send(rates)
